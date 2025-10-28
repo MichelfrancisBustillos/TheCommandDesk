@@ -25,8 +25,8 @@ enum tap_dance_codes {
   DANCE_9,
 };
 
-#define DUAL_FUNC_0 LT(8, KC_1)
-#define DUAL_FUNC_1 LT(8, KC_4)
+#define DUAL_FUNC_0 LT(2, KC_F23)
+#define DUAL_FUNC_1 LT(10, KC_C)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
@@ -82,10 +82,12 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
 
 const uint16_t PROGMEM combo0[] = { KC_LEFT_GUI, KC_C, COMBO_END};
 const uint16_t PROGMEM combo1[] = { LCTL(KC_A), KC_ESCAPE, COMBO_END};
+const uint16_t PROGMEM combo2[] = { KC_T, KC_Y, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_CALCULATOR),
     COMBO(combo1, ST_MACRO_0),
+    COMBO(combo2, LSFT(KC_T)),
 };
 
 
