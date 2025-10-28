@@ -8,7 +8,6 @@
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
   ST_MACRO_0,
-  ST_MACRO_1,
 };
 
 
@@ -26,8 +25,8 @@ enum tap_dance_codes {
   DANCE_9,
 };
 
-#define DUAL_FUNC_0 LT(7, KC_I)
-#define DUAL_FUNC_1 LT(4, KC_D)
+#define DUAL_FUNC_0 LT(8, KC_1)
+#define DUAL_FUNC_1 LT(8, KC_4)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
@@ -82,13 +81,11 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
 );
 
 const uint16_t PROGMEM combo0[] = { KC_LEFT_GUI, KC_C, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_T, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo2[] = { LCTL(KC_A), KC_ESCAPE, COMBO_END};
+const uint16_t PROGMEM combo1[] = { LCTL(KC_A), KC_ESCAPE, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_CALCULATOR),
     COMBO(combo1, ST_MACRO_0),
-    COMBO(combo2, ST_MACRO_1),
 };
 
 
@@ -554,11 +551,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
     case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_T)));
-    }
-    break;
-    case ST_MACRO_1:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_A))SS_DELAY(100)  SS_LCTL(SS_TAP(X_D)));
     }
